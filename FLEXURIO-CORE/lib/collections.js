@@ -17,3 +17,5 @@ WOSUBTIPE = new Mongo.Collection('woSubTipe');
 WOSUBTIPEDETAIL = new Mongo.Collection('woSubTipeDetail');
 WO = new Mongo.Collection('wo');
 APIMANAGER = new Mongo.Collection('apimanager');
+KATEGORI_BUKU = new Mongo.Collection('kategori_buku'); 
+SUB_KATEGORI = new Mongo.Collection('sub_kategori'); 

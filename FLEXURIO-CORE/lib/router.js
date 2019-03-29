@@ -83,3 +83,15 @@ Router.route('/wo', function () {
     Session.set('sURLMenu', 'wo');
     this.render('wo');
 });
+
+    Router.route('/kategori_buku', function () {
+        Session.set('sURLMenu', 'kategori_buku');
+       this.render('kategori_buku');
+    });
+    
+
+    Router.route('/sub_kategori', function () {
+        Session.set('sURLMenu', 'sub_kategori');
+       this.render('sub_kategori');
+    });
+    

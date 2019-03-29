@@ -165,3 +165,5 @@ publishData('woSubTipe', WOSUBTIPE, {}, {});
 publishData('woSubTipeDetail', WOSUBTIPEDETAIL, {}, {});
 publishData('wo', WO, {}, {});
 publishData('apimanager', APIMANAGER, {}, {});
+publishData('kategori_buku', KATEGORI_BUKU, {}, {});
+publishData('sub_kategori', SUB_KATEGORI, {}, {});

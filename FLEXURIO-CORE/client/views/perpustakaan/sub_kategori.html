@@ -1,0 +1,124 @@
+
+    <!-- Generated from flexurio at Kam Mar 28 09:34:05 WIB 2019 By claudia at Linux claudia 4.15.0-29-generic #31-Ubuntu SMP Tue Jul 17 15:39:52 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux -->
+
+    <template name='sub_kategori'>
+       <div class='container-fluid app'>
+          {{>utama}}
+          {{>menuSearch}}
+          {{#if isActionADD}}
+             {{>menuAdd}}
+          {{/if}}
+
+          <div class='row main {{isLockMenu}} animasiAtas'>
+
+             <!-- HEADER LISTVIEW -->
+             <div class='list-group panel panel-default headerApp'>
+                {{>headerListview}}
+
+
+                     <!-- Compiled and minified CSS -->
+
+
+              <!-- {{#each Bukus}} -->
+              <div class='list-group-item'>
+               <div class='row-content'>                        
+               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> 
+               <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+                              
+               <table class="striped">
+                                            
+                      <thead>
+                        <tr>
+                          <th> Sub Kategori</th>
+                          <th> Icons </th>
+                          <th> comment</th>
+                          <th> Action</th>
+                          </tr>
+                          </thead>
+
+                          <tbody>
+                           {{#each sub_kategoris}}
+                           <tr>
+                              <th> {{sub_kategori}}</th>
+                              <th> {{icons}}</th>
+                              <th> 
+                              {{>flxcomments isCommentOpen=false _id=_id comments=comments}}
+                              </th>
+                              <th> {{>actionListview}}</th>
+
+                  
+                      {{#if isEditing}}
+                      {{>blockModals}}
+                      <div class='container animasiAtas' style='position:fixed;top:10%;left:10%;width:80%;z-index:10001;'>
+                         <div class='col-md-12' style='height:auto;max-height:{{sTinggiPopUp}}px;overflow-y:scroll;'>
+                         
+
+         <div class='form-group label-floating has-info col-md-6'>
+         <label for='sub_kategoriEditSUB_KATEGORI' class='control-label'>SUB_KATEGORI SUB_KATEGORI</label>
+         <input name='sub_kategoriEditSUB_KATEGORI' id='sub_kategoriEditSUB_KATEGORI' type='text' class='form-control' style='font-size:larger;' value='{{sub_kategori}}'>
+         </div>
+
+         
+
+         <div class='form-group label-floating has-info col-md-6'>
+         <label for='iconsEditSUB_KATEGORI' class='control-label'>ICONS SUB_KATEGORI</label>
+         <input name='iconsEditSUB_KATEGORI' id='iconsEditSUB_KATEGORI' type='text' class='form-control' style='font-size:larger;' value='{{icons}}'>
+      </div>
+                             
+      </div>
+      <div class='pull-right'>
+      <a class='saveEDIT btn btn-primary' style='background-color:green;color:white;'>SAVE</a>
+      </div>
+      </div>
+      {{/if}}
+
+      </tr>
+      {{/each}}
+      </tbody>                      
+      </table>
+                                                   
+      <div class='least-content' style='top:20px;'>
+         <!-- {{>actionListview}} -->
+      </div>
+      </div>
+      </div>
+
+
+         </div>
+         {{>menuLoadMore}}
+      </div>
+                           
+          {{#if isCreating}}
+             {{>blockModals}}
+             <div class='container animasiAtas' style='position:fixed;top:10%;left:10%;width:80%;z-index:10001;'>
+                <div class='col-md-12' style='height:auto;max-height:{{sTinggiPopUp}}px;overflow-y:scroll;'>
+                
+
+         <div class='form-group label-floating has-info col-md-6'>
+         <label for='sub_kategoriSUB_KATEGORI' class='control-label'>SUB_KATEGORI SUB_KATEGORI</label>
+         <input name='sub_kategoriSUB_KATEGORI' id='sub_kategoriSUB_KATEGORI' type='text' class='form-control' style='font-size:larger;'>
+         </div>
+
+         
+
+         <div class='form-group label-floating has-info col-md-6'>
+         <label for='iconsSUB_KATEGORI' class='control-label'>ICONS SUB_KATEGORI</label>
+         <input name='iconsSUB_KATEGORI' id='iconsSUB_KATEGORI' type='text' class='form-control' style='font-size:larger;'>
+         </div>
+
+         
+                </div>
+
+                <div class='pull-right'>
+                   <a class='save btn btn-primary' style='background-color:green;color:white;'>SAVE</a>
+                </div>
+             </div>
+          {{/if}}
+
+          {{#if isDeleting}}
+             {{>formDeleting}}
+          {{/if}}
+       </div>
+    </template>
+
+    
