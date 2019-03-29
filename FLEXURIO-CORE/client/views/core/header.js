@@ -46,8 +46,6 @@ Template.header.helpers({
 Template.formDeleting.onRendered(function(){
     $('#modal_formDeleting').modal()
 });
-
-
 Template.header.events({
     'click a.gohome': function (e) {
       e.preventDefault();

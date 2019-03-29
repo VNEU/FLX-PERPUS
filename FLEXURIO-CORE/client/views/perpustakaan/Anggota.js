@@ -1,33 +1,33 @@
 
           /**
-          * Generated from flexurio at Kam Mar 28 09:34:05 WIB 2019
-          * By claudia at Linux claudia 4.15.0-29-generic #31-Ubuntu SMP Tue Jul 17 15:39:52 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+          * Generated from flexurio at Thu Mar 28 11:15:55 WIB 2019
+          * By anis at Linux anis-HP-14-Notebook-PC 4.18.0-15-generic #16~18.04.1-Ubuntu SMP Thu Feb 7 14:06:04 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
           */
 
       import { Template } from 'meteor/templating';
       import { Session } from 'meteor/session';
-      import './sub_kategori.html';
+      import './Anggota.html';
 
-      Template.sub_kategori.created = function () {
+      Template.Anggota.created = function () {
          Session.set('limit', 50);
          Session.set('oFILTERS', {});
          Session.set('oOPTIONS', {});
          Session.set('textSearch', '');
-         Session.set('namaHeader', 'DATA SUB_KATEGORI');
+         Session.set('namaHeader', 'DATA ANGGOTA');
          Session.set('dataDelete', '');
          Session.set('isCreating', false);
          Session.set('isDeleting', false);
 
          this.autorun(function () {
-                subscribtion('sub_kategori', Session.get('oFILTERS'), Session.get('oOPTIONS'), Session.get('limit'));
+                subscribtion('Anggota', Session.get('oFILTERS'), Session.get('oOPTIONS'), Session.get('limit'));
          });
        };
 
-        Template.sub_kategori.onRendered(function () {
+        Template.Anggota.onRendered(function () {
             ScrollHandler();
         });
 
-        Template.sub_kategori.helpers({
+        Template.Anggota.helpers({
             isLockMenu: function () {
                 return isLockMenu();
             },
@@ -60,7 +60,7 @@
          isCreating: function() {
             return Session.get('isCreating');
          },
-         sub_kategoris: function() {
+         Anggotas: function() {
             let textSearch = '';
             if(adaDATA(Session.get('textSearch'))) {
                textSearch = Session.get('textSearch').replace('#', '').trim();
@@ -75,22 +75,30 @@
                aktifYN: 1,
                $or: [
                
-         {sub_kategori: { $regex : new RegExp(textSearch, 'i') }},
+         {nama_anggota: { $regex : new RegExp(textSearch, 'i') }},
          
-         {icons: { $regex : new RegExp(textSearch, 'i') }},
+         {jenis_kelamin: { $regex : new RegExp(textSearch, 'i') }},
+         
+         {no_ktp: { $regex : new RegExp(textSearch, 'i') }},
+         
+         {alamat: { $regex : new RegExp(textSearch, 'i') }},
+         
+         {email: { $regex : new RegExp(textSearch, 'i') }},
+         
+         {no_telp: { $regex : new RegExp(textSearch, 'i') }},
          
                {_id: { $regex : new RegExp(textSearch, 'i') }},
                ]
             }
 
-            return SUB_KATEGORI.find(
+            return ANGGOTA.find(
                 oFILTERS,
                 oOPTIONS
             );
          }
       });
 
-      Template.sub_kategori.events({
+      Template.Anggota.events({
          'click a.cancel': function(e, tpl){
             e.preventDefault();
             Session.set('isCreating', false);
@@ -101,7 +109,7 @@
 
          'click a.deleteDataOK': function(e, tpl){
             e.preventDefault();
-            deleteSUB_KATEGORI();
+            deleteANGGOTA();
             FlashMessages.sendWarning('Attention, ' + Session.get('dataDelete') + ' successfully DELETE !');
             Session.set('isDeleting', false);
          },
@@ -110,15 +118,13 @@
             Scroll2Top();
 
             Session.set('isDeleting', true);
-            Session.set('dataDelete', Session.get('namaHeader').toLowerCase() + ' ' + this.sub_kategori);
+            Session.set('dataDelete', Session.get('namaHeader').toLowerCase() + ' ' + this.nama_anggota);
             Session.set('idDeleting', this._id);
 
-         setTimeout(function(){
-            $('#modal_formDeleting').modal('open')
-         },300)
-      },
-
-
+            setTimeout(function(){
+               $('#modal_formDeleting').modal('open')
+            },300)
+         },
 
          'click a.create': function(e, tpl){
             e.preventDefault();
@@ -126,15 +132,15 @@
 
             Session.set('isCreating', true);
          },
-         'keyup #namaSUB_KATEGORI': function (e, tpl) {
+         'keyup #namaANGGOTA': function (e, tpl) {
             e.preventDefault();
             if (e.keyCode == 13) {
-               insertSUB_KATEGORI(tpl);
+               insertANGGOTA(tpl);
             }
          },
          'click a.save': function(e, tpl){
             e.preventDefault();
-            insertSUB_KATEGORI(tpl);
+            insertANGGOTA(tpl);
          },
 
          'click a.editData': function(e, tpl){
@@ -144,43 +150,59 @@
             Session.set('idEditing', this._id);
             Session.set('isEditing', true);
          },
-         'keyup #namaEditSUB_KATEGORI': function (e, tpl) {
+         'keyup #namaEditANGGOTA': function (e, tpl) {
             e.preventDefault();
             if (e.keyCode == 13) {
-               updateSUB_KATEGORI(tpl);
+               updateANGGOTA(tpl);
             }
          },
          'click a.saveEDIT': function(e, tpl){
             e.preventDefault();
-            updateSUB_KATEGORI(tpl);
+            updateANGGOTA(tpl);
          },
          'submit form.form-comments': function (e, tpl) {
             e.preventDefault();
-            flxcomments(e,tpl,SUB_KATEGORI);
+            flxcomments(e,tpl,ANGGOTA);
         }
 
       });
 
 
-      insertSUB_KATEGORI = function (tpl) {
+      insertANGGOTA = function (tpl) {
 
          
-         let sub_kategoriSUB_KATEGORI = tpl.$('input[name="sub_kategoriSUB_KATEGORI"]').val();
+         let nama_anggotaANGGOTA = tpl.$('input[name="nama_anggotaANGGOTA"]').val();
          
-         let iconsSUB_KATEGORI = tpl.$('input[name="iconsSUB_KATEGORI"]').val();
+         let jenis_kelaminANGGOTA = tpl.$('select[name="jenis_kelaminANGGOTA"]').val();
+         
+         let no_ktpANGGOTA = tpl.$('input[name="no_ktpANGGOTA"]').val();
+         
+         let alamatANGGOTA = tpl.$('input[name="alamatANGGOTA"]').val();
+         
+         let emailANGGOTA = tpl.$('input[name="emailANGGOTA"]').val();
+         
+         let no_telpANGGOTA = tpl.$('input[name="no_telpANGGOTA"]').val();
          
 
-         if(!adaDATA(sub_kategoriSUB_KATEGORI) | !adaDATA(iconsSUB_KATEGORI) ) {
+         if(!adaDATA(nama_anggotaANGGOTA) | !adaDATA(jenis_kelaminANGGOTA) | !adaDATA(no_ktpANGGOTA) | !adaDATA(alamatANGGOTA) | !adaDATA(emailANGGOTA) | !adaDATA(no_telpANGGOTA) ) {
             FlashMessages.sendWarning('Please complete all of the data to be . . .');
             return;
          }
 
-         SUB_KATEGORI.insert(
+         ANGGOTA.insert(
          {
             
-         sub_kategori: sub_kategoriSUB_KATEGORI,
+         nama_anggota: nama_anggotaANGGOTA,
          
-         icons: iconsSUB_KATEGORI,
+         jenis_kelamin: jenis_kelaminANGGOTA,
+         
+         no_ktp: no_ktpANGGOTA,
+         
+         alamat: alamatANGGOTA,
+         
+         email: emailANGGOTA,
+         
+         no_telp: no_telpANGGOTA,
          
             aktifYN: 1,
             createByID: UserID(),
@@ -199,25 +221,41 @@
       };
 
 
-      updateSUB_KATEGORI = function (tpl) {
+      updateANGGOTA = function (tpl) {
 
          
-         let sub_kategoriEditSUB_KATEGORI = tpl.$('input[name="sub_kategoriEditSUB_KATEGORI"]').val();
+         let nama_anggotaEditANGGOTA = tpl.$('input[name="nama_anggotaEditANGGOTA"]').val();
          
-         let iconsEditSUB_KATEGORI = tpl.$('input[name="iconsEditSUB_KATEGORI"]').val();
+         let jenis_kelaminEditANGGOTA = tpl.$('select[name="jenis_kelaminEditANGGOTA"]').val();
+         
+         let no_ktpEditANGGOTA = tpl.$('input[name="no_ktpEditANGGOTA"]').val();
+         
+         let alamatEditANGGOTA = tpl.$('input[name="alamatEditANGGOTA"]').val();
+         
+         let emailEditANGGOTA = tpl.$('input[name="emailEditANGGOTA"]').val();
+         
+         let no_telpEditANGGOTA = tpl.$('input[name="no_telpEditANGGOTA"]').val();
          
 
-         if(!adaDATA(sub_kategoriEditSUB_KATEGORI) | !adaDATA(iconsEditSUB_KATEGORI) ) {
+         if(!adaDATA(nama_anggotaEditANGGOTA) | !adaDATA(jenis_kelaminEditANGGOTA) | !adaDATA(no_ktpEditANGGOTA) | !adaDATA(alamatEditANGGOTA) | !adaDATA(emailEditANGGOTA) | !adaDATA(no_telpEditANGGOTA) ) {
             FlashMessages.sendWarning('Please complete all of the data to be . . .');
             return;
          }
 
-         SUB_KATEGORI.update({_id:Session.get('idEditing')},
+         ANGGOTA.update({_id:Session.get('idEditing')},
          { $set:{
             
-         sub_kategori: sub_kategoriEditSUB_KATEGORI,
+         nama_anggota: nama_anggotaEditANGGOTA,
          
-         icons: iconsEditSUB_KATEGORI,
+         jenis_kelamin: jenis_kelaminEditANGGOTA,
+         
+         no_ktp: no_ktpEditANGGOTA,
+         
+         alamat: alamatEditANGGOTA,
+         
+         email: emailEditANGGOTA,
+         
+         no_telp: no_telpEditANGGOTA,
          
             updateByID: UserID(),
             updateBy:UserName(),
@@ -236,14 +274,14 @@
       );
    };
 
-   deleteSUB_KATEGORI = function () {
+   deleteANGGOTA = function () {
 
       if(!adaDATA(Session.get('idDeleting'))) {
          FlashMessages.sendWarning('Please select data that you want to remove . . .');
          return;
       }
 
-      SUB_KATEGORI.update({_id:Session.get('idDeleting')},
+      ANGGOTA.update({_id:Session.get('idDeleting')},
           { $set:{
              aktifYN: 0,
              deleteByID: UserID(),

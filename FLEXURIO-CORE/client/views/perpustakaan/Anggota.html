@@ -1,0 +1,192 @@
+
+       <!-- Generated from flexurio at Thu Mar 28 11:15:55 WIB 2019 By anis at Linux anis-HP-14-Notebook-PC 4.18.0-15-generic #16~18.04.1-Ubuntu SMP Thu Feb 7 14:06:04 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux -->
+
+       <template name='Anggota'>
+         <div class='container-fluid app'>
+          {{>utama}}
+          {{>menuSearch}}
+          {{#if isActionADD}}
+             {{>menuAdd}}
+          {{/if}}
+
+         <div class='row main {{isLockMenu}} animasiAtas'>
+
+       <!-- HEADER LISTVIEW -->
+         <div class='list-group panel panel-default headerApp'>
+         {{>headerListview}}
+       <!-- Compiled and minified CSS -->
+
+
+       <!-- {{#each Anggotas}} -->
+         <div class='list-group-item'>
+         <div class='row-content'>                        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> 
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+                                    
+         <table class="striped">
+                                                  
+         <thead>
+            <tr>
+               <th>Nama Anggota</th>
+               <th>Jenis Kelamin</th>
+               <th>No KTP</th>
+               <th>Alamat</th>
+               <th>Email</th>
+               <th>No Telp</th>
+               <th>Comment</th>
+               <th>Action</th>
+            </tr>
+         </thead>
+                                  
+         <tbody>
+         {{#each Anggotas}}
+            <tr>
+               <th> {{nama_anggota}}</th>
+               <th> {{jenis_kelamin}}</th>
+               <th> {{no_ktp}}</th>
+               <th> {{alamat}}</th>
+               <th>{{email}}</th>
+               <th> {{no_ktp}} </th>
+            <th> 
+         {{>flxcomments isCommentOpen=false _id=_id comments=comments}}
+            </th>
+         <th> {{>actionListview}}</th>
+
+         {{#if isEditing}}
+            {{>blockModals}}
+         <div class='container animasiAtas' style='position:fixed;top:10%;left:10%;width:80%;z-index:10001;'>
+         <div class='col-md-12' style='height:auto;max-height:{{sTinggiPopUp}}px;overflow-y:scroll;'>
+                         
+
+         <div class='form-group label-floating has-info col-md-6'>
+         <label for='nama_anggotaEditANGGOTA' class='control-label'>NAMA_ANGGOTA ANGGOTA</label>
+         <input name='nama_anggotaEditANGGOTA' id='nama_anggotaEditANGGOTA' type='text' class='form-control' style='font-size:larger;' value='{{nama_anggota}}'>
+         </div>
+
+         
+
+         <div class='form-group label-floating has-info col-md-6'>
+         <label for='jenis_kelaminEditANGGOTA' class='control-label'>JENIS_KELAMIN ANGGOTA</label>
+         <select name='jenis_kelaminEditANGGOTA' id='jenis_kelaminEditANGGOTA' type='text' class='form-control' style='font-size:larger;' value='{{jenis_kelamin}}'>
+            <option value='Laki-Laki'>Laki-Laki</option>
+            <option value='Perempuan'>Perempuan</option>
+         </select>
+         </div>
+
+         
+
+         <div class='form-group label-floating has-info col-md-6'>
+         <label for='no_ktpEditANGGOTA' class='control-label'>NO_KTP ANGGOTA</label>
+         <input name='no_ktpEditANGGOTA' id='no_ktpEditANGGOTA' type='text' class='form-control' style='font-size:larger;' value='{{no_ktp}}'>
+         </div>
+
+         
+
+         <div class='form-group label-floating has-info col-md-6'>
+         <label for='alamatEditANGGOTA' class='control-label'>ALAMAT ANGGOTA</label>
+         <select name='alamatEditANGGOTA' id='alamatEditANGGOTA' type='text' class='form-control' style='font-size:larger;' value='{{alamat}}'>
+         <select name='Asal_Kota'></select>
+            <option value='Kota Jakarta'>Kota Jakarta</option>
+            <option value='Kota Bandung'>Kota Bandung</option>
+            <option value='Kota semarang'>Kota Semarang</option>
+         </select>
+         </div>
+
+
+         <div class='form-group label-floating has-info col-md-6'>
+         <label for='emailEditANGGOTA' class='control-label'>EMAIL ANGGOTA</label>
+         <input name='emailEditANGGOTA' id='emailEditANGGOTA' type='text' class='form-control' style='font-size:larger;' value='{{email}}'>
+         </div>
+
+         
+
+         <div class='form-group label-floating has-info col-md-6'>
+         <label for='no_telpEditANGGOTA' class='control-label'>NO_TELP ANGGOTA</label>
+         <input name='no_telpEditANGGOTA' id='no_telpEditANGGOTA' type='text' class='form-control' style='font-size:larger;' value='{{no_telp}}'>
+         </div>
+
+         
+         </div>
+            <div class='pull-right'>
+               <a class='saveEDIT btn btn-primary' style='background-color:green;color:white;'>SAVE</a>
+            </div>
+         </div>
+            {{/if}}
+         </tr> 
+
+            {{/each}}
+         </tbody>
+            </table>
+                  <div class='least-content' style='top:20px;'>        
+               </div>
+            </div>
+         </div>
+
+            </div>
+         {{>menuLoadMore}}
+            </div>
+          {{#if isCreating}}
+             {{>blockModals}}
+             <div class='container animasiAtas' style='position:fixed;top:10%;left:10%;width:80%;z-index:10001;'>
+                <div class='col-md-12' style='height:auto;max-height:{{sTinggiPopUp}}px;overflow-y:scroll;'>
+                
+
+         <div class='form-group label-floating has-info col-md-6'>
+         <label for='nama_anggotaANGGOTA' class='control-label'>NAMA_ANGGOTA ANGGOTA</label>
+         <input name='nama_anggotaANGGOTA' id='nama_anggotaANGGOTA' type='text' class='form-control' style='font-size:larger;'>
+         </div>
+
+         
+
+         <div class='form-group label-floating has-info col-md-6'>
+         <label for='jenis_kelaminANGGOTA' class='control-label'>JENIS_KELAMIN ANGGOTA</label>
+         <select name='jenis_kelaminANGGOTA' id='jenis_kelaminANGGOTA' type='text' class='form-control' style='font-size:larger;'>
+            <option value='Laki-Laki'>Laki-Laki</option>
+            <option value='Perempuan'>Perempuan</option>
+         </select>
+         </div>
+
+         
+
+         <div class='form-group label-floating has-info col-md-6'>
+         <label for='no_ktpANGGOTA' class='control-label'>NO_KTP ANGGOTA</label>
+         <input name='no_ktpANGGOTA' id='no_ktpANGGOTA' type='text' class='form-control' style='font-size:larger;'>
+         </div>
+
+         
+
+         <div class='form-group label-floating has-info col-md-6'>
+         <label for='alamatANGGOTA' class='control-label'>ALAMAT ANGGOTA</label>
+         <input name='alamatANGGOTA' id='alamatANGGOTA' type='text' class='form-control' style='font-size:larger;'>
+         </div>
+
+         
+
+         <div class='form-group label-floating has-info col-md-6'>
+         <label for='emailANGGOTA' class='control-label'>EMAIL ANGGOTA</label>
+         <input name='emailANGGOTA' id='emailANGGOTA' type='text' class='form-control' style='font-size:larger;'>
+         </div>
+
+         
+
+         <div class='form-group label-floating has-info col-md-6'>
+         <label for='no_telpANGGOTA' class='control-label'>NO_TELP ANGGOTA</label>
+         <input name='no_telpANGGOTA' id='no_telpANGGOTA' type='text' class='form-control' style='font-size:larger;'>
+         </div>
+
+         
+                </div>
+
+                <div class='pull-right'>
+                   <a class='save btn btn-primary' style='background-color:green;color:white;'>SAVE</a>
+                </div>
+             </div>
+          {{/if}}
+
+          {{#if isDeleting}}
+             {{>formDeleting}}
+          {{/if}}
+       </div>
+    </template>
+
+    

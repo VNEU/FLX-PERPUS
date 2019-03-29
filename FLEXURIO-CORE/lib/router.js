@@ -95,3 +95,9 @@ Router.route('/wo', function () {
        this.render('sub_kategori');
     });
     
+
+    Router.route('/Anggota', function () {
+        Session.set('sURLMenu', 'Anggota');
+       this.render('Anggota');
+    });
+    
