@@ -128,10 +128,7 @@ Router.route('/wo', function () {
 
     Router.route('/subKategori', function () {
         Session.set('sURLMenu', 'subKategori');
-       this.render('subKategori');
-
-     
-       
+       this.render('subKategori');       
     });
     
 
@@ -142,3 +139,20 @@ Router.route('/wo', function () {
        Session.set('lihatsub')=='';
     });
     
+
+    Router.route('/peminjaman', function () {
+        Session.set('sURLMenu', 'peminjaman');
+       this.render('peminjaman');
+    });
+
+
+    Router.route('/About', function () {
+        Session.set('sURLMenu', 'About');
+       this.render('About');
+    });
+
+
+    Router.route('/home', function () {
+        Session.set('sURLMenu', 'home');
+       this.render('home');
+    });

@@ -23,3 +23,4 @@ ANGGOTA = new Mongo.Collection('Anggota');
 KATEGORI = new Mongo.Collection('kategori'); 
 SUBKATEGORI = new Mongo.Collection('subKategori'); 
 BUKU = new Mongo.Collection('Buku'); 
+PEMINJAMAN = new Mongo.Collection('peminjaman'); 

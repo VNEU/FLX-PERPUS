@@ -171,3 +171,4 @@ publishData('Anggota', ANGGOTA, {}, {});
 publishData('kategori', KATEGORI, {}, {});
 publishData('subKategori', SUBKATEGORI, {}, {});
 publishData('Buku', BUKU, {}, {});
+publishData('peminjaman', PEMINJAMAN, {}, {});
