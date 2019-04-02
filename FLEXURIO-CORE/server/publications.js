@@ -168,3 +168,6 @@ publishData('apimanager', APIMANAGER, {}, {});
 publishData('kategori_buku', KATEGORI_BUKU, {}, {});
 publishData('sub_kategori', SUB_KATEGORI, {}, {});
 publishData('Anggota', ANGGOTA, {}, {});
+publishData('kategori', KATEGORI, {}, {});
+publishData('subKategori', SUBKATEGORI, {}, {});
+publishData('Buku', BUKU, {}, {});

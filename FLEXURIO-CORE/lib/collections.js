@@ -20,3 +20,6 @@ APIMANAGER = new Mongo.Collection('apimanager');
 KATEGORI_BUKU = new Mongo.Collection('kategori_buku'); 
 SUB_KATEGORI = new Mongo.Collection('sub_kategori'); 
 ANGGOTA = new Mongo.Collection('Anggota'); 
+KATEGORI = new Mongo.Collection('kategori'); 
+SUBKATEGORI = new Mongo.Collection('subKategori'); 
+BUKU = new Mongo.Collection('Buku'); 

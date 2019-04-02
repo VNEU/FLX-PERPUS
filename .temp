@@ -1,0 +1,6 @@
+
+    Router.route('/Buku', function () {
+        Session.set('sURLMenu', 'Buku');
+       this.render('Buku');
+    });
+    
